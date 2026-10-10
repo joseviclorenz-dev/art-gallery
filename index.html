@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charcoal Art & Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Charcoal Studio</div>
+    <ul class="nav-links">
+      <li><a href="#profile">About Me</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile-card">
+      <!-- Replace src with your profile photo URL -->
+      <img src="hero.jpg" alt="Artist Profile" class="profile-avatar">
+      
+      <div class="profile-info">
+        <h1>Lorenz</h1>
+        <div class="profile-title">Charcoal Portrait Artist</div>
+        <p class="profile-bio">
+          Passionate about capturing deep emotion, contrast, and subtle textures through traditional charcoal portraiture. Specializing in realistic facial details, dynamic lighting, and custom commission artwork.
+        </p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <span>Location</span>
+            Mabini Magsaysay, Davao del Sur, Philippines
+          </div>
+          <div class="info-item">
+            <span>Experience</span>
+            5+ Years
+          </div>
+          <div class="info-item">
+            <span>Mediums</span>
+            Charcoal Only:p
+          </div>
+          <div class="info-item">
+            <span>Status</span>
+            Open for Commissions
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/rukimi_sang?cplk=eGd4Znp3NXBtanI=" class="social-btn">Instagram</a>
+          <a href="https://www.facebook.com/viclorenz.jose.3/directory_links" class="social-btn">Facebook</a>
+          <a href="mailto:your.email@example.com" class="social-btn">Email Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <h2 class="section-title">Charcoal Gallery</h2>
+      <p class="section-subtitle">Explore selected original drawings and portrait studies</p>
+
+      <!-- Category Filter Buttons -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Works</button>
+        <button class="filter-btn" data-filter="realistic">Realism</button>
+        <button class="filter-btn" data-filter="expressive">Expressive / Quick Studies</button>
+        <button class="filter-btn" data-filter="commissions">Commissions</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <!-- Artwork Item 1 -->
+        <div class="art-card" data-category="realistic" onclick="openLightbox('Silent Reflection', '2024 • Charcoal on Medium Paper (A4)', 'A detailed realistic portrait study focusing on soft ambient shadows and eye details.', 'https://via.placeholder.com/600x800?text=Charcoal+Drawing+1')">
+          <div class="art-img-wrapper">
+            <img src="portrait.jpg" alt="Charcoal Drawing">
+          </div>
+          <div class="art-details">
+            <div class="art-title">Rhukush Zalviskosch</div>
+            <div class="art-meta">A4 • Realism</div>
+          </div>
+        </div>
+
+        <!-- Artwork Item 2 -->
+        <div class="art-card" data-category="expressive" onclick="openLightbox('Dynamic Shadow', '2024 • Willow Charcoal on Textured Paper', 'A high-contrast study exploring heavy shadows and gestural stroke lines.', 'https://via.placeholder.com/600x800?text=Charcoal+Drawing+2')">
+          <div class="art-img-wrapper">
+            <img src="https://via.placeholder.com/600x800?text=Charcoal+Drawing+2" alt="Charcoal Drawing">
+          </div>
+          <div class="art-details">
+            <div class="art-title">Dynamic Shadow</div>
+            <div class="art-meta">9 x 12 inches • Expressive</div>
+          </div>
+        </div>
+
+        <!-- Artwork Item 3 -->
+        <div class="art-card" data-category="commissions" onclick="openLightbox('Family Legacy', '2023 • Compressed Charcoal on Bristol Board', 'Custom commissioned portrait crafted from archival photographs.', 'https://via.placeholder.com/600x800?text=Charcoal+Drawing+3')">
+          <div class="art-img-wrapper">
+            <img src="https://via.placeholder.com/600x800?text=Charcoal+Drawing+3" alt="Charcoal Drawing">
+          </div>
+          <div class="art-details">
+            <div class="art-title">Family Legacy</div>
+            <div class="art-meta">18 x 24 inches • Commission</div>
+          </div>
+        </div>
+
+        <!-- Artwork Item 4 -->
+        <div class="art-card" data-category="realistic" onclick="openLightbox('Elders Wisdom', '2024 • Charcoal & White Chalk', 'Detailed study focusing on skin texture and high contrast lighting.', 'https://via.placeholder.com/600x800?text=Charcoal+Drawing+4')">
+          <div class="art-img-wrapper">
+            <img src="https://via.placeholder.com/600x800?text=Charcoal+Drawing+4" alt="Charcoal Drawing">
+          </div>
+          <div class="art-details">
+            <div class="art-title">Elder\'s Wisdom</div>
+            <div class="art-meta">16 x 20 inches • Realism</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="modal" id="artModal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeLightbox()">&times;</button>
+      <div class="modal-img-container">
+        <img id="modalImg" src="" alt="Expanded View">
+      </div>
+      <div class="modal-body">
+        <div>
+          <h2 id="modalTitle" style="margin-bottom: 0.5rem;"></h2>
+          <div id="modalMeta" style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 1rem;"></div>
+          <p id="modalDesc" style="color: var(--text-muted); font-size: 0.95rem;"></p>
+        </div>
+        <a href="#contact" class="social-btn" style="text-align: center; margin-top: 1.5rem;" onclick="closeLightbox()">Inquire About This Piece</a>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="app.js">
+  </script>
+
+</body>
+</html>
